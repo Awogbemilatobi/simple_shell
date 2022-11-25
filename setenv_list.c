@@ -47,13 +47,7 @@ env_list_t *_getenv_list_node(char *name, env_list_t **env)
   * @argv: argument vector
   * @env: environment linked list
   */
-void _setenv_lis;
-		count++;
-		a = a->next;
-	}
-	str_env[count] = NULL;
-	return (str_env);
-}t(char **argv, env_list_t **env)
+void _setenv_list(char **argv, env_list_t **env)
 {
 	env_list_t *a, *b;
 
@@ -77,7 +71,12 @@ void _setenv_lis;
 	b->name = _strdup(argv[1]);
 	b->value = _strdup(argv[2]);
 	b->next = NULL;
-	list var
+	a->next = b;
+}
+
+
+/**
+  * _unsetenv_list - unset's a env_list var
   * @argv: argument vector
   * @env: environment linked list
   */
@@ -105,7 +104,8 @@ void _unsetenv_list(char **argv, env_list_t **env)
 
 /**
   * _get_str_env - converts linked list to str[] for execve
-  * @env: environment linkenv
+  * @env: environment linked list
+  * Return: char **, a char *[] representation of env
   */
 char **_get_str_env(env_list_t **env)
 {
@@ -131,4 +131,10 @@ char **_get_str_env(env_list_t **env)
 		_strcpy(entry, a->name);
 		entry = _strcat(entry, "=");
 		entry = _strcat(entry, a->value);
-		str_env[count] = entry
+		str_env[count] = entry;
+		count++;
+		a = a->next;
+	}
+	str_env[count] = NULL;
+	return (str_env);
+}
