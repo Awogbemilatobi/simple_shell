@@ -44,40 +44,7 @@ int _atoi(char *s)
 
 	for (i = 0;  s[i] != '\0' && flag != 2; i++)
 	{
-		if (str)
-{
-	unsigned int i;
-	int cLL);
-	for (i = 0; str[i]; i++)
-	{
-		count++;
-	}
-	count += 1;
-	dest = malloc(count * sizeof(char));i = 0; str[i] != '\0'; i++)
-	{
-		dest[i] = str[i];
-	}
-	dest[i] = str[i];
-	return (dest);
-}
-
-/**
-  * _strcmp - a function to compare 2 strings
-  * @s1: the first string
-  * @s2: the second str*s2)
-{
-	while (*s1 && *s2)
-	{
-		if (*s1 == *s2)
-		{
-			s1++;
-			s2++;
-		}
-		else
-		break;
-	}
-	return (*s1 - *s2);
-}[i] == '-')
+		if (s[i] == '-')
 			sign *= -1;
 
 		if (s[i] >= '0' && s[i] <= '9')
@@ -90,7 +57,12 @@ int _atoi(char *s)
 			flag = 2;
 	}
 
-	if (sign == put);
+	if (sign == -1)
+		output = -result;
+	else
+		output = result;
+
+	return (output);
 }
 
 /**
@@ -114,4 +86,50 @@ int _strlen(char *str)
  * @str: the string we copy
  * Return: pointer to new string
  */
-char *_strdup(char *s
+char *_strdup(char *str)
+{
+	unsigned int i;
+	int count = 0;
+	char *dest;
+
+	if (str == NULL)
+		return (NULL);
+	for (i = 0; str[i]; i++)
+	{
+		count++;
+	}
+	count += 1;
+	dest = malloc(count * sizeof(char));
+	if (dest == NULL)
+	{
+		return (NULL);
+	}
+	for (i = 0; str[i] != '\0'; i++)
+	{
+		dest[i] = str[i];
+	}
+	dest[i] = str[i];
+	return (dest);
+}
+
+/**
+  * _strcmp - a function to compare 2 strings
+  * @s1: the first string
+  * @s2: the second string
+  *
+  * Return: int
+  */
+int _strcmp(char *s1, char *s2)
+{
+	while (*s1 && *s2)
+	{
+		if (*s1 == *s2)
+		{
+			s1++;
+			s2++;
+		}
+		else
+		break;
+	}
+	return (*s1 - *s2);
+}

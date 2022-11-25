@@ -87,3 +87,4 @@ void free_ops(order_t **ops)
 		free(a);
 	}
 	free(ops);
+}
